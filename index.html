@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Gadge Creations</title>
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: Arial, sans-serif;
+    }
+
+    body {
+      background: #080b14;
+      color: white;
+      line-height: 1.6;
+    }
+
+    header {
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 30px;
+      background:
+        radial-gradient(circle at top, #3a270d, transparent 40%),
+        linear-gradient(135deg, #080b14, #111827);
+    }
+
+    .hero {
+      max-width: 900px;
+    }
+
+    .logo {
+      width: 130px;
+      height: 130px;
+      margin: 0 auto 25px;
+      border-radius: 50%;
+      border: 3px solid #d6a84f;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 42px;
+      font-weight: bold;
+      color: #d6a84f;
+      background: #111827;
+      box-shadow: 0 0 35px rgba(214,168,79,.25);
+    }
+
+    h1 {
+      font-size: clamp(42px, 8vw, 80px);
+      color: #d6a84f;
+      letter-spacing: 2px;
+      margin-bottom: 10px;
+    }
+
+    .tagline {
+      font-size: clamp(18px, 3vw, 26px);
+      color: #f5f5f5;
+      margin-bottom: 20px;
+    }
+
+    .description {
+      max-width: 700px;
+      margin: auto;
+      color: #c7cbd4;
+      font-size: 17px;
+    }
+
+    .buttons {
+      margin-top: 35px;
+      display: flex;
+      justify-content: center;
+      gap: 15px;
+      flex-wrap: wrap;
+    }
+
+    .btn {
+      text-decoration: none;
+      padding: 13px 25px;
+      border-radius: 30px;
+      font-weight: bold;
+      transition: .3s;
+    }
+
+    .primary {
+      background: #d6a84f;
+      color: #080b14;
+    }
+
+    .secondary {
+      border: 1px solid #d6a84f;
+      color: #d6a84f;
+    }
+
+    .btn:hover {
+      transform: translateY(-3px);
+    }
+
+    section {
+      padding: 70px 25px;
+      text-align: center;
+    }
+
+    section h2 {
+      color: #d6a84f;
+      font-size: 34px;
+      margin-bottom: 35px;
+    }
+
+    .cards {
+      max-width: 1100px;
+      margin: auto;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 20px;
+    }
+
+    .card {
+      background: #111827;
+      border: 1px solid #252b38;
+      padding: 30px 20px;
+      border-radius: 18px;
+    }
+
+    .card h3 {
+      color: #d6a84f;
+      margin-bottom: 10px;
+    }
+
+    .card p {
+      color: #b8bec9;
+    }
+
+    footer {
+      padding: 30px;
+      text-align: center;
+      border-top: 1px solid #252b38;
+      color: #888;
+    }
+  </style>
+</head>
+
+<body>
+
+  <header>
+    <div class="hero">
+
+      <div class="logo">GC</div>
+
+      <h1>GADGE CREATIONS</h1>
+
+      <p class="tagline">
+        Learn • Build • Earn
+      </p>
+
+      <p class="description">
+        Practical digital products, AI resources, technology,
+        productivity and motivation — helping students, creators,
+        professionals and entrepreneurs turn ideas into action.
+      </p>
+
+      <div class="buttons">
+        <a class="btn primary" href="#explore">Explore</a>
+        <a class="btn secondary" href="https://www.instagram.com/gadge_creations/" target="_blank">
+          Instagram
+        </a>
+      </div>
+
+    </div>
+  </header>
+
+  <section id="explore">
+    <h2>What We Create</h2>
+
+    <div class="cards">
+
+      <div class="card">
+        <h3>🤖 AI Resources</h3>
+        <p>Useful AI tools, prompts and resources.</p>
+      </div>
+
+      <div class="card">
+        <h3>📦 Digital Products</h3>
+        <p>Practical digital products and creative resources.</p>
+      </div>
+
+      <div class="card">
+        <h3>💻 Technology</h3>
+        <p>Technology learning and useful development resources.</p>
+      </div>
+
+      <div class="card">
+        <h3>📈 Productivity</h3>
+        <p>Tools and ideas to help you work smarter.</p>
+      </div>
+
+      <div class="card">
+        <h3>🔥 Motivation</h3>
+        <p>Ideas and inspiration to keep moving forward.</p>
+      </div>
+
+    </div>
+  </section>
+
+  <footer>
+    © 2026 Gadge Creations. All rights reserved.
+  </footer>
+
+</body>
+</html>
