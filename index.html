@@ -1,0 +1,4303 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0"
+  >
+
+  <meta
+    name="description"
+    content="Gadge Creations — practical digital products, AI resources, technology, productivity and motivation."
+  >
+
+  <meta
+    name="theme-color"
+    content="#070a12"
+  >
+
+  <meta
+    name="robots"
+    content="index, follow"
+  >
+
+  <meta
+    property="og:title"
+    content="Gadge Creations | Learn • Build • Earn"
+  >
+
+  <meta
+    property="og:description"
+    content="Practical digital products, AI resources, technology, productivity and motivation."
+  >
+
+  <meta
+    property="og:type"
+    content="website"
+  >
+
+  <title>Gadge Creations | Learn • Build • Earn</title>
+
+  <style>
+
+    :root {
+      --bg: #070a12;
+      --bg2: #0b1120;
+      --panel: rgba(16, 23, 38, 0.62);
+
+      --gold: #d6a84f;
+      --gold2: #f0d084;
+
+      --cyan: #00d4ff;
+
+      --text: #f7f8fb;
+      --muted: #aab3c2;
+
+      --line: rgba(255, 255, 255, 0.09);
+
+      --gold-line: rgba(214, 168, 79, 0.24);
+
+      --max: 1180px;
+      --radius: 24px;
+
+      --shadow:
+        0 24px 80px rgba(0, 0, 0, 0.34);
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+      scroll-padding-top: 88px;
+    }
+
+    body {
+      min-height: 100vh;
+      overflow-x: hidden;
+
+      color: var(--text);
+
+      font-family:
+        Inter,
+        system-ui,
+        -apple-system,
+        "Segoe UI",
+        sans-serif;
+
+      line-height: 1.6;
+
+      background:
+        radial-gradient(
+          circle at 12% 8%,
+          rgba(214, 168, 79, 0.12),
+          transparent 25rem
+        ),
+        radial-gradient(
+          circle at 88% 28%,
+          rgba(0, 212, 255, 0.1),
+          transparent 28rem
+        ),
+        linear-gradient(
+          135deg,
+          #05070d,
+          #0a1020 48%,
+          #070a12
+        );
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    button {
+      font: inherit;
+    }
+
+    button,
+    a {
+      -webkit-tap-highlight-color: transparent;
+    }
+
+    img {
+      max-width: 100%;
+      display: block;
+    }
+
+    .container {
+      width: min(var(--max), 92%);
+      margin: auto;
+    }
+
+    section {
+      padding: 100px 0;
+      position: relative;
+    }
+
+    .skip {
+      position: fixed;
+      top: -100px;
+      left: 15px;
+
+      z-index: 9999;
+
+      padding: 10px 15px;
+
+      background: var(--gold);
+      color: #07101c;
+
+      border-radius: 10px;
+
+      font-weight: 800;
+    }
+
+    .skip:focus {
+      top: 15px;
+    }
+
+    /* BACKGROUND */
+
+    .background {
+      position: fixed;
+      inset: 0;
+
+      z-index: -2;
+
+      overflow: hidden;
+      pointer-events: none;
+    }
+
+    .orb {
+      position: absolute;
+
+      border-radius: 50%;
+
+      filter: blur(80px);
+
+      opacity: 0.16;
+
+      animation: float 12s ease-in-out infinite;
+    }
+
+    .gold-orb {
+      width: 360px;
+      height: 360px;
+
+      left: -110px;
+      top: 8%;
+
+      background: rgba(214, 168, 79, 0.55);
+    }
+
+    .cyan-orb {
+      width: 440px;
+      height: 440px;
+
+      right: -150px;
+      bottom: 12%;
+
+      background: rgba(0, 212, 255, 0.42);
+
+      animation-delay: -4s;
+    }
+
+    .grid {
+      position: absolute;
+      inset: 0;
+
+      opacity: 0.2;
+
+      background-image:
+        linear-gradient(
+          rgba(255, 255, 255, 0.035) 1px,
+          transparent 1px
+        ),
+        linear-gradient(
+          90deg,
+          rgba(255, 255, 255, 0.035) 1px,
+          transparent 1px
+        );
+
+      background-size: 55px 55px;
+    }
+
+    @keyframes float {
+      50% {
+        transform:
+          translateY(-22px)
+          scale(1.04);
+      }
+    }
+
+    /* NAVIGATION */
+
+    .site-nav {
+      position: sticky;
+      top: 0;
+
+      z-index: 1000;
+
+      border-bottom:
+        1px solid rgba(255, 255, 255, 0.07);
+
+      background:
+        rgba(5, 8, 18, 0.72);
+
+      backdrop-filter: blur(18px);
+
+      transition: 0.3s;
+    }
+
+    .site-nav.scrolled {
+      background:
+        rgba(5, 8, 18, 0.94);
+
+      box-shadow:
+        0 12px 45px rgba(0, 0, 0, 0.22);
+    }
+
+    .nav-inner {
+      min-height: 76px;
+
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+
+      gap: 24px;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+
+      gap: 10px;
+
+      font-weight: 900;
+      letter-spacing: 0.6px;
+    }
+
+    .brand-mark {
+      width: 40px;
+      height: 40px;
+
+      display: grid;
+      place-items: center;
+
+      border:
+        1px solid var(--gold-line);
+
+      border-radius: 13px;
+
+      color: var(--gold);
+
+      background:
+        linear-gradient(
+          145deg,
+          rgba(214, 168, 79, 0.16),
+          rgba(0, 212, 255, 0.05)
+        );
+    }
+
+    .brand-name {
+      color: var(--gold);
+    }
+
+    .brand-name span {
+      color: var(--cyan);
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 22px;
+    }
+
+    .nav-links a {
+      color: #cbd3e5;
+
+      font-size: 0.92rem;
+      font-weight: 700;
+    }
+
+    .nav-links a:hover {
+      color: #fff;
+    }
+
+    .menu-toggle {
+      display: none;
+
+      width: 44px;
+      height: 44px;
+
+      border:
+        1px solid var(--line);
+
+      border-radius: 13px;
+
+      color: #fff;
+
+      background:
+        rgba(255, 255, 255, 0.04);
+
+      cursor: pointer;
+    }
+
+    .menu-icon {
+      width: 21px;
+      height: 16px;
+
+      display: block;
+
+      position: relative;
+
+      margin: auto;
+    }
+
+    .menu-icon span {
+      position: absolute;
+      left: 0;
+
+      width: 100%;
+      height: 2px;
+
+      background: #fff;
+
+      transition: 0.25s;
+    }
+
+    .menu-icon span:nth-child(1) {
+      top: 0;
+    }
+
+    .menu-icon span:nth-child(2) {
+      top: 7px;
+    }
+
+    .menu-icon span:nth-child(3) {
+      top: 14px;
+    }
+
+    .menu-toggle[aria-expanded="true"]
+      .menu-icon span:nth-child(1) {
+      top: 7px;
+      transform: rotate(45deg);
+    }
+
+    .menu-toggle[aria-expanded="true"]
+      .menu-icon span:nth-child(2) {
+      opacity: 0;
+    }
+
+    .menu-toggle[aria-expanded="true"]
+      .menu-icon span:nth-child(3) {
+      top: 7px;
+      transform: rotate(-45deg);
+    }
+
+    /* COMMON */
+
+    .eyebrow {
+      margin-bottom: 10px;
+
+      color: var(--cyan);
+
+      font-size: 0.78rem;
+      font-weight: 900;
+
+      letter-spacing: 2px;
+      text-transform: uppercase;
+    }
+
+    .section-head {
+      max-width: 780px;
+
+      margin:
+        0 auto 52px;
+
+      text-align: center;
+    }
+
+    .section-head h2 {
+      color: var(--gold2);
+
+      font-size:
+        clamp(2rem, 5vw, 3.4rem);
+
+      line-height: 1.05;
+
+      letter-spacing: -0.04em;
+    }
+
+    .section-lead {
+      margin-top: 14px;
+
+      color: var(--muted);
+    }
+
+    .glass {
+      border:
+        1px solid var(--line);
+
+      background:
+        linear-gradient(
+          145deg,
+          rgba(255, 255, 255, 0.065),
+          rgba(255, 255, 255, 0.025)
+        );
+
+      backdrop-filter: blur(18px);
+
+      border-radius: var(--radius);
+
+      box-shadow: var(--shadow);
+    }
+
+    .btn {
+      min-height: 46px;
+
+      display: inline-flex;
+
+      align-items: center;
+      justify-content: center;
+
+      gap: 8px;
+
+      padding: 11px 20px;
+
+      border-radius: 999px;
+
+      border:
+        1px solid transparent;
+
+      font-weight: 850;
+
+      cursor: pointer;
+
+      transition: 0.25s;
+    }
+
+    .primary {
+      color: #07101c;
+
+      background:
+        linear-gradient(
+          135deg,
+          var(--gold),
+          var(--gold2)
+        );
+
+      box-shadow:
+        0 12px 34px
+        rgba(214, 168, 79, 0.14);
+    }
+
+    .primary:hover {
+      transform: translateY(-3px);
+    }
+
+    .secondary {
+      color: var(--gold2);
+
+      border-color:
+        var(--gold-line);
+
+      background:
+        rgba(214, 168, 79, 0.035);
+    }
+
+    .secondary:hover {
+      transform: translateY(-3px);
+
+      color: #07101c;
+
+      background: var(--gold);
+    }
+
+    :focus-visible {
+      outline:
+        2px solid var(--cyan);
+
+      outline-offset: 4px;
+    }
+
+    /* HERO */
+
+    .hero {
+      min-height:
+        calc(100vh - 76px);
+
+      display: grid;
+      place-items: center;
+
+      text-align: center;
+
+      overflow: hidden;
+    }
+
+    .hero-content {
+      max-width: 920px;
+      margin: auto;
+    }
+
+    .hero-badge {
+      display: inline-flex;
+
+      align-items: center;
+
+      gap: 8px;
+
+      padding: 8px 14px;
+
+      border:
+        1px solid rgba(0, 212, 255, 0.2);
+
+      border-radius: 999px;
+
+      color: #c8f8ff;
+
+      background:
+        rgba(0, 212, 255, 0.05);
+
+      font-size: 0.8rem;
+      font-weight: 800;
+    }
+
+    .dot {
+      width: 7px;
+      height: 7px;
+
+      border-radius: 50%;
+
+      background: var(--cyan);
+
+      box-shadow:
+        0 0 12px var(--cyan);
+    }
+
+    .brand-circle {
+      width: 136px;
+      height: 136px;
+
+      display: grid;
+      place-items: center;
+
+      margin: 28px auto 30px;
+
+      border:
+        1px solid rgba(214, 168, 79, 0.55);
+
+      border-radius: 50%;
+
+      background:
+        radial-gradient(
+          circle,
+          rgba(214, 168, 79, 0.1),
+          rgba(255, 255, 255, 0.02)
+        );
+
+      box-shadow:
+        0 0 45px
+        rgba(214, 168, 79, 0.08),
+        inset 0 0 35px
+        rgba(214, 168, 79, 0.06);
+
+      animation:
+        pulse 5s ease-in-out infinite;
+    }
+
+    .brand-circle strong {
+      font-size: 3.1rem;
+
+      letter-spacing: -3px;
+
+      color: var(--gold);
+    }
+
+    @keyframes pulse {
+      50% {
+        transform: scale(1.035);
+      }
+    }
+
+    .hero h1 {
+      font-size:
+        clamp(2.6rem, 8vw, 6.5rem);
+
+      line-height: 0.98;
+
+      letter-spacing: -0.065em;
+
+      color: var(--gold2);
+    }
+
+    .tagline {
+      margin-top: 20px;
+
+      color: var(--cyan);
+
+      font-size:
+        clamp(1rem, 2vw, 1.35rem);
+
+      font-weight: 900;
+
+      letter-spacing: 2.5px;
+    }
+
+    .hero-description {
+      max-width: 760px;
+
+      margin:
+        22px auto 32px;
+
+      color: var(--muted);
+
+      font-size: 1.04rem;
+    }
+
+    .buttons {
+      display: flex;
+
+      justify-content: center;
+
+      flex-wrap: wrap;
+
+      gap: 12px;
+    }
+
+    /* CARDS */
+
+    .cards,
+    .grid-3,
+    .grid-4 {
+      display: grid;
+      gap: 20px;
+    }
+
+    .cards {
+      grid-template-columns:
+        repeat(4, 1fr);
+    }
+
+    .grid-3 {
+      grid-template-columns:
+        repeat(3, 1fr);
+    }
+
+    .grid-4 {
+      grid-template-columns:
+        repeat(4, 1fr);
+    }
+
+    .card {
+      position: relative;
+
+      overflow: hidden;
+
+      padding: 28px 24px;
+
+      border:
+        1px solid var(--line);
+
+      border-radius: var(--radius);
+
+      background:
+        linear-gradient(
+          145deg,
+          rgba(255, 255, 255, 0.06),
+          rgba(255, 255, 255, 0.025)
+        );
+
+      backdrop-filter: blur(18px);
+
+      transition: 0.35s;
+    }
+
+    .card:hover {
+      transform: translateY(-8px);
+
+      border-color:
+        rgba(0, 212, 255, 0.32);
+
+      box-shadow:
+        0 28px 65px
+        rgba(0, 0, 0, 0.25);
+    }
+
+    .card-icon {
+      width: 56px;
+      height: 56px;
+
+      display: grid;
+      place-items: center;
+
+      margin-bottom: 18px;
+
+      border:
+        1px solid rgba(214, 168, 79, 0.18);
+
+      border-radius: 17px;
+
+      background:
+        rgba(214, 168, 79, 0.06);
+
+      font-size: 1.65rem;
+    }
+
+    .card h3 {
+      margin-bottom: 9px;
+
+      color: var(--gold2);
+
+      font-size: 1.18rem;
+    }
+
+    .card p {
+      color: var(--muted);
+
+      font-size: 0.94rem;
+    }
+
+    .card .btn {
+      width: 100%;
+      margin-top: 20px;
+    }
+
+    .meta {
+      margin-bottom: 12px;
+
+      color: var(--cyan);
+
+      font-size: 0.72rem;
+      font-weight: 900;
+
+      letter-spacing: 1.5px;
+
+      text-transform: uppercase;
+    }
+
+    .badge {
+      display: inline-flex;
+
+      padding: 6px 10px;
+
+      border:
+        1px solid rgba(0, 212, 255, 0.22);
+
+      border-radius: 999px;
+
+      color: #c7f8ff;
+
+      background:
+        rgba(0, 212, 255, 0.05);
+
+      font-size: 0.68rem;
+
+      font-weight: 900;
+
+      text-transform: uppercase;
+
+      letter-spacing: 1px;
+    }
+
+    /* ABOUT */
+
+    .about-box {
+      max-width: 920px;
+
+      margin: auto;
+
+      padding:
+        clamp(30px, 6vw, 58px);
+
+      text-align: center;
+    }
+
+    .about-mark {
+      width: 72px;
+      height: 72px;
+
+      display: grid;
+      place-items: center;
+
+      margin:
+        0 auto 24px;
+
+      border:
+        1px solid var(--gold-line);
+
+      border-radius: 22px;
+
+      color: var(--gold);
+
+      background:
+        rgba(214, 168, 79, 0.06);
+
+      font-size: 2rem;
+    }
+
+    .about-box p {
+      color: #c4ccda;
+    }
+
+    .about-box h3 {
+      margin:
+        24px 0 9px;
+
+      color: var(--cyan);
+    }
+
+    /* PRODUCT CARDS */
+
+    .product-card {
+      display: flex;
+      flex-direction: column;
+
+      min-height: 360px;
+    }
+
+    .product-preview {
+      height: 150px;
+
+      display: grid;
+      place-items: center;
+
+      margin:
+        -28px -24px 22px;
+
+      background:
+        linear-gradient(
+          135deg,
+          rgba(214, 168, 79, 0.12),
+          rgba(0, 212, 255, 0.06)
+        );
+
+      border-bottom:
+        1px solid var(--line);
+
+      font-size: 3.2rem;
+    }
+
+    .product-body {
+      flex: 1;
+    }
+
+    .product-footer {
+      display: flex;
+
+      align-items: center;
+
+      gap: 10px;
+
+      margin-top: 20px;
+    }
+
+    .product-footer .btn {
+      flex: 1;
+      margin: 0;
+    }
+
+    /* STATS */
+
+    .stat {
+      padding: 28px 18px;
+
+      text-align: center;
+    }
+
+    .stat strong {
+      display: block;
+
+      color: var(--gold2);
+
+      font-size:
+        clamp(2rem, 5vw, 3rem);
+
+      line-height: 1;
+    }
+
+    .stat span {
+      color: var(--muted);
+
+      font-size: 0.86rem;
+    }
+
+    /* FOUNDER */
+
+    .founder {
+      display: grid;
+
+      grid-template-columns: 180px 1fr;
+
+      gap: 34px;
+
+      align-items: center;
+
+      padding: 42px;
+    }
+
+    .avatar {
+      width: 150px;
+      height: 150px;
+
+      display: grid;
+      place-items: center;
+
+      border-radius: 40px;
+
+      color: var(--gold);
+
+      font-size: 3rem;
+
+      font-weight: 950;
+
+      background:
+        linear-gradient(
+          145deg,
+          rgba(214, 168, 79, 0.14),
+          rgba(0, 212, 255, 0.05)
+        );
+
+      border:
+        1px solid var(--gold-line);
+    }
+
+    .founder h3 {
+      font-size: 1.8rem;
+
+      color: var(--gold2);
+
+      margin-bottom: 8px;
+    }
+
+    .founder p {
+      color: var(--muted);
+    }
+
+    /* CTA */
+
+    .cta {
+      max-width: 920px;
+
+      margin: auto;
+
+      padding:
+        clamp(38px, 7vw, 72px);
+
+      text-align: center;
+    }
+
+    .cta h2 {
+      font-size:
+        clamp(2rem, 5vw, 3.2rem);
+
+      color: var(--gold2);
+    }
+
+    .cta p {
+      max-width: 680px;
+
+      margin:
+        14px auto 28px;
+
+      color: var(--muted);
+    }
+
+    /* ANIMATION */
+
+    .reveal {
+      opacity: 0;
+
+      transform:
+        translateY(22px);
+
+      transition:
+        opacity 0.7s ease,
+        transform 0.7s ease;
+    }
+
+    .reveal.visible {
+      opacity: 1;
+      transform: none;
+    }
+
+    /* MODALS */
+
+    .modal {
+      width:
+        min(650px, calc(100% - 28px));
+
+      max-height:
+        calc(100dvh - 28px);
+
+      padding: 0;
+
+      overflow: auto;
+
+      border:
+        1px solid rgba(214, 168, 79, 0.36);
+
+      border-radius: 28px;
+
+      color: var(--text);
+
+      background:
+        linear-gradient(
+          145deg,
+          rgba(19, 29, 49, 0.98),
+          rgba(7, 12, 23, 0.99)
+        );
+
+      box-shadow:
+        0 30px 100px
+        rgba(0, 0, 0, 0.62);
+    }
+
+    .modal::backdrop {
+      background:
+        rgba(1, 4, 10, 0.78);
+
+      backdrop-filter: blur(8px);
+    }
+
+    .modal-inner {
+      position: relative;
+
+      padding:
+        clamp(28px, 5vw, 42px);
+    }
+
+    .modal-close {
+      position: absolute;
+
+      right: 16px;
+      top: 16px;
+
+      width: 40px;
+      height: 40px;
+
+      border:
+        1px solid var(--line);
+
+      border-radius: 50%;
+
+      color: #fff;
+
+      background:
+        rgba(255, 255, 255, 0.045);
+
+      cursor: pointer;
+
+      font-size: 22px;
+    }
+
+    .modal-status {
+      display: inline-flex;
+
+      padding: 7px 11px;
+
+      border:
+        1px solid rgba(0, 212, 255, 0.25);
+
+      border-radius: 999px;
+
+      color: #c7f8ff;
+
+      background:
+        rgba(0, 212, 255, 0.06);
+
+      font-size: 0.68rem;
+
+      font-weight: 900;
+
+      text-transform: uppercase;
+
+      letter-spacing: 1.3px;
+    }
+
+    .modal h2 {
+      margin:
+        22px 0 12px;
+
+      color: var(--gold2);
+
+      font-size:
+        clamp(1.8rem, 6vw, 2.6rem);
+
+      line-height: 1.05;
+    }
+
+    .modal p {
+      color: var(--muted);
+    }
+
+    .topic-list {
+      display: grid;
+
+      gap: 10px;
+
+      margin:
+        24px 0;
+
+      padding: 0;
+
+      list-style: none;
+    }
+
+    .topic-list li {
+      padding: 12px 14px;
+
+      border:
+        1px solid var(--line);
+
+      border-radius: 13px;
+
+      background:
+        rgba(255, 255, 255, 0.035);
+
+      color: #d9e4f2;
+    }
+
+    .topic-list li::before {
+      content: "✦";
+
+      margin-right: 9px;
+
+      color: var(--cyan);
+    }
+
+    .modal-actions {
+      display: flex;
+
+      flex-wrap: wrap;
+
+      gap: 10px;
+
+      padding-top: 22px;
+
+      border-top:
+        1px solid var(--line);
+    }
+
+    /* FOOTER */
+
+    footer {
+      padding:
+        65px 0 30px;
+
+      text-align: center;
+
+      border-top:
+        1px solid rgba(255, 255, 255, 0.07);
+
+      background: #03050b;
+    }
+
+    .footer-brand {
+      display: inline-flex;
+
+      align-items: center;
+
+      gap: 10px;
+
+      margin-bottom: 10px;
+
+      color: var(--gold);
+
+      font-weight: 900;
+
+      letter-spacing: 1px;
+    }
+
+    .footer-tagline {
+      margin-bottom: 13px;
+
+      color: var(--cyan);
+
+      font-weight: 800;
+    }
+
+    footer p {
+      color: #7f899f;
+
+      font-size: 0.86rem;
+    }
+
+    /* RESPONSIVE */
+
+    @media (max-width: 1050px) {
+      .cards {
+        grid-template-columns:
+          repeat(2, 1fr);
+      }
+
+      .grid-4 {
+        grid-template-columns:
+          repeat(2, 1fr);
+      }
+
+      .grid-3 {
+        grid-template-columns:
+          repeat(2, 1fr);
+      }
+    }
+
+    @media (max-width: 760px) {
+
+      section {
+        padding: 76px 0;
+      }
+
+      .menu-toggle {
+        display: grid;
+        place-items: center;
+      }
+
+      .nav-links {
+        position: absolute;
+
+        top:
+          calc(100% + 1px);
+
+        left: 0;
+        right: 0;
+
+        display: flex;
+
+        flex-direction: column;
+
+        align-items: stretch;
+
+        gap: 0;
+
+        padding: 10px;
+
+        background:
+          rgba(5, 8, 18, 0.97);
+
+        backdrop-filter: blur(20px);
+
+        opacity: 0;
+
+        visibility: hidden;
+
+        pointer-events: none;
+
+        transform:
+          translateY(-8px);
+
+        transition: 0.25s;
+      }
+
+      .nav-links.open {
+        opacity: 1;
+
+        visibility: visible;
+
+        pointer-events: auto;
+
+        transform: none;
+      }
+
+      .nav-links a {
+        padding: 14px 15px;
+
+        border-radius: 12px;
+      }
+
+      .nav-links a:hover {
+        background:
+          rgba(255, 255, 255, 0.04);
+      }
+
+      .cards,
+      .grid-3,
+      .grid-4 {
+        grid-template-columns: 1fr;
+      }
+
+      .founder {
+        grid-template-columns: 1fr;
+
+        text-align: center;
+      }
+
+      .avatar {
+        margin: auto;
+      }
+
+      .hero h1 {
+        font-size:
+          clamp(2.6rem, 13vw, 4.8rem);
+      }
+    }
+
+    @media (max-width: 430px) {
+
+      .container {
+        width: 92%;
+      }
+
+      .brand-name {
+        font-size: 0.94rem;
+      }
+
+      .brand-circle {
+        width: 110px;
+        height: 110px;
+      }
+
+      .brand-circle strong {
+        font-size: 2.5rem;
+      }
+
+      .buttons {
+        flex-direction: column;
+      }
+
+      .buttons .btn {
+        width: 100%;
+      }
+
+      .modal-actions {
+        flex-direction: column;
+      }
+
+      .modal-actions .btn {
+        width: 100%;
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+
+      html {
+        scroll-behavior: auto;
+      }
+
+      *,
+      *::before,
+      *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+      }
+
+      .reveal {
+        opacity: 1;
+        transform: none;
+      }
+    }
+
+  </style>
+</head>
+<body>
+
+  <!-- BACKGROUND -->
+  <div class="background" aria-hidden="true">
+    <div class="orb gold-orb"></div>
+    <div class="orb cyan-orb"></div>
+    <div class="grid"></div>
+  </div>
+
+
+  <!-- ACCESSIBILITY -->
+  <a class="skip" href="#main">
+    Skip to content
+  </a>
+
+
+  <!-- =========================
+       NAVIGATION
+       ========================= -->
+
+  <header class="site-nav" id="top">
+
+    <div class="container nav-inner">
+
+      <a
+        class="brand"
+        href="#home"
+        aria-label="Gadge Creations home"
+      >
+
+        <span class="brand-mark">
+          GC
+        </span>
+
+        <span class="brand-name">
+          GADGE<span>.</span>
+        </span>
+
+      </a>
+
+
+      <!-- MOBILE MENU BUTTON -->
+
+      <button
+        class="menu-toggle"
+        type="button"
+        aria-label="Open navigation menu"
+        aria-expanded="false"
+        aria-controls="primary-navigation"
+      >
+
+        <span
+          class="menu-icon"
+          aria-hidden="true"
+        >
+          <span></span>
+          <span></span>
+          <span></span>
+        </span>
+
+      </button>
+
+
+      <!-- NAVIGATION LINKS -->
+
+      <nav
+        class="nav-links"
+        id="primary-navigation"
+        aria-label="Primary navigation"
+      >
+
+        <a href="#home">
+          Home
+        </a>
+
+        <a href="#about">
+          About
+        </a>
+
+        <a href="#services">
+          Services
+        </a>
+
+        <a href="#resources">
+          Resources
+        </a>
+
+        <a href="#products">
+          Products
+        </a>
+
+        <a href="#ai-tools">
+          AI Tools
+        </a>
+
+        <a href="#contact">
+          Contact
+        </a>
+
+      </nav>
+
+    </div>
+
+  </header>
+
+
+
+  <!-- =========================
+       MAIN CONTENT
+       ========================= -->
+
+  <main id="main">
+
+
+    <!-- =========================
+         HERO SECTION
+         ========================= -->
+
+    <section
+      class="hero"
+      id="home"
+    >
+
+      <div class="container hero-content">
+
+
+        <div class="hero-badge reveal">
+
+          <span class="dot"></span>
+
+          Digital Creator
+          •
+          Technology
+          •
+          AI
+
+        </div>
+
+
+        <div
+          class="brand-circle reveal"
+          aria-hidden="true"
+        >
+
+          <strong>
+            GC
+          </strong>
+
+        </div>
+
+
+        <h1 class="reveal">
+          GADGE CREATIONS
+        </h1>
+
+
+        <p class="tagline reveal">
+          LEARN • BUILD • EARN
+        </p>
+
+
+        <p class="hero-description reveal">
+
+          Practical digital products, AI resources,
+          technology, productivity and motivation —
+          helping students, creators, professionals
+          and entrepreneurs turn ideas into action.
+
+        </p>
+
+
+        <div class="buttons reveal">
+
+          <a
+            class="btn primary"
+            href="#resources"
+          >
+            Explore Resources →
+          </a>
+
+
+          <a
+            class="btn secondary"
+            href="https://www.instagram.com/gadge_creations/"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            Follow on Instagram ↗
+          </a>
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+
+    <!-- =========================
+         ABOUT SECTION
+         ========================= -->
+
+    <section id="about">
+
+      <div class="container">
+
+
+        <div class="section-head reveal">
+
+          <p class="eyebrow">
+            Who We Are
+          </p>
+
+          <h2>
+            About Gadge Creations
+          </h2>
+
+        </div>
+
+
+        <div class="about-box glass reveal">
+
+          <div
+            class="about-mark"
+            aria-hidden="true"
+          >
+            ✦
+          </div>
+
+
+          <p>
+
+            Gadge Creations is a premium digital
+            creator platform dedicated to empowering
+            students, creators, professionals and
+            entrepreneurs with practical tools and
+            knowledge.
+
+          </p>
+
+
+          <h3>
+            🎯 Our Focus
+          </h3>
+
+
+          <p>
+
+            We specialize in AI resources,
+            digital products, technology,
+            productivity tools and motivational
+            content designed to help transform
+            ideas into reality.
+
+          </p>
+
+
+          <h3>
+            Our Goal
+          </h3>
+
+
+          <p>
+            <strong>
+              Learn • Build • Earn
+            </strong>
+          </p>
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+
+    <!-- =========================
+         SERVICES SECTION
+         ========================= -->
+
+    <section id="services">
+
+      <div class="container">
+
+
+        <div class="section-head reveal">
+
+          <p class="eyebrow">
+            What We Create
+          </p>
+
+          <h2>
+            Tools For Your Next Move
+          </h2>
+
+          <p class="section-lead">
+
+            Practical resources designed to help
+            you learn faster, build smarter and
+            keep moving forward.
+
+          </p>
+
+        </div>
+
+
+        <div class="cards">
+
+
+          <!-- SERVICE 1 -->
+
+          <article class="card reveal">
+
+            <span
+              class="card-icon"
+              aria-hidden="true"
+            >
+              🤖
+            </span>
+
+            <h3>
+              AI Resources
+            </h3>
+
+            <p>
+
+              Cutting-edge AI tools,
+              powerful prompts and curated
+              resources to enhance your
+              workflow and creativity.
+
+            </p>
+
+            <button
+              class="btn secondary"
+              type="button"
+              data-resource="ai"
+            >
+              Explore ↗
+            </button>
+
+          </article>
+
+
+          <!-- SERVICE 2 -->
+
+          <article class="card reveal">
+
+            <span
+              class="card-icon"
+              aria-hidden="true"
+            >
+              📦
+            </span>
+
+            <h3>
+              Digital Products
+            </h3>
+
+            <p>
+
+              Thoughtfully designed digital
+              products and creative resources
+              to accelerate your projects
+              and success.
+
+            </p>
+
+            <button
+              class="btn secondary"
+              type="button"
+              data-resource="digital-products"
+            >
+              Explore ↗
+            </button>
+
+          </article>
+
+
+          <!-- SERVICE 3 -->
+
+          <article class="card reveal">
+
+            <span
+              class="card-icon"
+              aria-hidden="true"
+            >
+              💻
+            </span>
+
+            <h3>
+              Technology
+            </h3>
+
+            <p>
+
+              Technology learning and
+              practical development resources
+              for modern tools and platforms.
+
+            </p>
+
+            <button
+              class="btn secondary"
+              type="button"
+              data-resource="technology"
+            >
+              Explore ↗
+            </button>
+
+          </article>
+
+
+          <!-- SERVICE 4 -->
+
+          <article class="card reveal">
+
+            <span
+              class="card-icon"
+              aria-hidden="true"
+            >
+              ⚡
+            </span>
+
+            <h3>
+              Productivity
+            </h3>
+
+            <p>
+
+              Tools and strategies to work
+              smarter, improve focus and make
+              better use of your time.
+
+            </p>
+
+            <button
+              class="btn secondary"
+              type="button"
+              data-resource="productivity"
+            >
+              Explore ↗
+            </button>
+
+          </article>
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+
+    <!-- =========================
+         RESOURCES SECTION
+         ========================= -->
+
+    <section id="resources">
+
+      <div class="container">
+
+
+        <div class="section-head reveal">
+
+          <p class="eyebrow">
+            Premium Resources
+          </p>
+
+          <h2>
+            Explore Resource Categories
+          </h2>
+
+          <p class="section-lead">
+
+            Focused collections for learning,
+            creating, working smarter and
+            personal growth.
+
+          </p>
+
+        </div>
+
+
+        <div class="grid-3">
+
+
+          <!-- RESOURCE 1 -->
+
+          <article class="card reveal">
+
+            <span class="meta">
+              01 • AI
+            </span>
+
+            <span class="card-icon">
+              🤖
+            </span>
+
+            <h3>
+              AI Resources
+            </h3>
+
+            <p>
+              AI tools, prompt ideas and
+              practical AI learning.
+            </p>
+
+            <button
+              class="btn secondary"
+              type="button"
+              data-resource="ai"
+            >
+              Explore
+            </button>
+
+          </article>
+
+
+          <!-- RESOURCE 2 -->
+
+          <article class="card reveal">
+
+            <span class="meta">
+              02 • PRODUCTS
+            </span>
+
+            <span class="card-icon">
+              💎
+            </span>
+
+            <h3>
+              Digital Products
+            </h3>
+
+            <p>
+              Templates, e-books and useful
+              digital downloads.
+            </p>
+
+            <button
+              class="btn secondary"
+              type="button"
+              data-resource="digital-products"
+            >
+              Explore
+            </button>
+
+          </article>
+
+
+          <!-- RESOURCE 3 -->
+
+          <article class="card reveal">
+
+            <span class="meta">
+              03 • TECH
+            </span>
+
+            <span class="card-icon">
+              💻
+            </span>
+
+            <h3>
+              Technology
+            </h3>
+
+            <p>
+              Web development, coding and
+              developer resources.
+            </p>
+
+            <button
+              class="btn secondary"
+              type="button"
+              data-resource="technology"
+            >
+              Explore
+            </button>
+
+          </article>
+
+
+          <!-- RESOURCE 4 -->
+
+          <article class="card reveal">
+
+            <span class="meta">
+              04 • FOCUS
+            </span>
+
+            <span class="card-icon">
+              ⚡
+            </span>
+
+            <h3>
+              Productivity
+            </h3>
+
+            <p>
+              Study tools, workflows and
+              productivity systems.
+            </p>
+
+            <button
+              class="btn secondary"
+              type="button"
+              data-resource="productivity"
+            >
+              Explore
+            </button>
+
+          </article>
+
+
+          <!-- RESOURCE 5 -->
+
+          <article class="card reveal">
+
+            <span class="meta">
+              05 • MINDSET
+            </span>
+
+            <span class="card-icon">
+              🔥
+            </span>
+
+            <h3>
+              Motivation
+            </h3>
+
+            <p>
+              Motivational content and
+              success mindset resources.
+            </p>
+
+            <button
+              class="btn secondary"
+              type="button"
+              data-resource="motivation"
+            >
+              Explore
+            </button>
+
+          </article>
+
+
+          <!-- RESOURCE 6 -->
+
+          <article class="card reveal">
+
+            <span class="meta">
+              06 • GROWTH
+            </span>
+
+            <span class="card-icon">
+              🌱
+            </span>
+
+            <h3>
+              Personal Growth
+            </h3>
+
+            <p>
+              Skill development, career growth
+              and learning resources.
+            </p>
+
+            <button
+              class="btn secondary"
+              type="button"
+              data-resource="personal-growth"
+            >
+              Explore
+            </button>
+
+          </article>
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+
+    <!-- ==================================================
+         DIGITAL PRODUCTS SHOWCASE
+         ================================================== -->
+
+    <section id="products">
+
+      <div class="container">
+
+
+        <div class="section-head reveal">
+
+          <p class="eyebrow">
+            Digital Store
+          </p>
+
+          <h2>
+            Digital Products Showcase
+          </h2>
+
+          <p class="section-lead">
+
+            Creative digital resources designed
+            to help you create faster, learn
+            better and grow.
+
+          </p>
+
+        </div>
+
+
+        <div class="grid-3">
+
+
+          <!-- PRODUCT 1 -->
+
+          <article class="card product-card reveal">
+
+            <div
+              class="product-preview"
+              aria-hidden="true"
+            >
+              🎨
+            </div>
+
+            <div class="product-body">
+
+              <span class="meta">
+                01 • Templates
+              </span>
+
+              <h3>
+                Poster Template Collection
+              </h3>
+
+              <p>
+
+                Premium editable poster templates
+                for birthdays, motivation,
+                business and social media.
+
+              </p>
+
+            </div>
+
+
+            <div class="product-footer">
+
+              <span class="badge">
+                Coming Soon
+              </span>
+
+              <button
+                class="btn secondary product-view"
+                type="button"
+                data-product="poster"
+              >
+                View Details
+              </button>
+
+            </div>
+
+          </article>
+
+
+          <!-- PRODUCT 2 -->
+
+          <article class="card product-card reveal">
+
+            <div
+              class="product-preview"
+              aria-hidden="true"
+            >
+              🔥
+            </div>
+
+            <div class="product-body">
+
+              <span class="meta">
+                02 • Kannada
+              </span>
+
+              <h3>
+                Kannada Motivation Templates
+              </h3>
+
+              <p>
+
+                Kannada motivational poster
+                templates created for creators
+                and social media pages.
+
+              </p>
+
+            </div>
+
+
+            <div class="product-footer">
+
+              <span class="badge">
+                Coming Soon
+              </span>
+
+              <button
+                class="btn secondary product-view"
+                type="button"
+                data-product="kannada"
+              >
+                View Details
+              </button>
+
+            </div>
+
+          </article>
+
+
+          <!-- PRODUCT 3 -->
+
+          <article class="card product-card reveal">
+
+            <div
+              class="product-preview"
+              aria-hidden="true"
+            >
+              💼
+            </div>
+
+            <div class="product-body">
+
+              <span class="meta">
+                03 • Business
+              </span>
+
+              <h3>
+                Business &amp; Attitude Templates
+              </h3>
+
+              <p>
+
+                Professional business, branding
+                and attitude-style social media
+                templates.
+
+              </p>
+
+            </div>
+
+
+            <div class="product-footer">
+
+              <span class="badge">
+                Coming Soon
+              </span>
+
+              <button
+                class="btn secondary product-view"
+                type="button"
+                data-product="business"
+              >
+                View Details
+              </button>
+
+            </div>
+
+          </article>
+
+
+          <!-- PRODUCT 4 -->
+
+          <article class="card product-card reveal">
+
+            <div
+              class="product-preview"
+              aria-hidden="true"
+            >
+              📚
+            </div>
+
+            <div class="product-body">
+
+              <span class="meta">
+                04 • E-books
+              </span>
+
+              <h3>
+                Creator E-book Collection
+              </h3>
+
+              <p>
+
+                Practical digital guides and
+                creator-focused e-books for
+                learning and growth.
+
+              </p>
+
+            </div>
+
+
+            <div class="product-footer">
+
+              <span class="badge">
+                Coming Soon
+              </span>
+
+              <button
+                class="btn secondary product-view"
+                type="button"
+                data-product="ebooks"
+              >
+                View Details
+              </button>
+
+            </div>
+
+          </article>
+
+
+          <!-- PRODUCT 5 -->
+
+          <article class="card product-card reveal">
+
+            <div
+              class="product-preview"
+              aria-hidden="true"
+            >
+              🤖
+            </div>
+
+            <div class="product-body">
+
+              <span class="meta">
+                05 • AI
+              </span>
+
+              <h3>
+                AI Prompt Collection
+              </h3>
+
+              <p>
+
+                Useful AI prompts for creators,
+                productivity, content and
+                digital work.
+
+              </p>
+
+            </div>
+
+
+            <div class="product-footer">
+
+              <span class="badge">
+                Coming Soon
+              </span>
+
+              <button
+                class="btn secondary product-view"
+                type="button"
+                data-product="ai-prompts"
+              >
+                View Details
+              </button>
+
+            </div>
+
+          </article>
+
+
+          <!-- PRODUCT 6 -->
+
+          <article class="card product-card reveal">
+
+            <div
+              class="product-preview"
+              aria-hidden="true"
+            >
+              📱
+            </div>
+
+            <div class="product-body">
+
+              <span class="meta">
+                06 • Social
+              </span>
+
+              <h3>
+                Social Media Template Pack
+              </h3>
+
+              <p>
+
+                Modern templates for Instagram
+                posts, stories and promotional
+                content.
+
+              </p>
+
+            </div>
+
+
+            <div class="product-footer">
+
+              <span class="badge">
+                Coming Soon
+              </span>
+
+              <button
+                class="btn secondary product-view"
+                type="button"
+                data-product="social"
+              >
+                View Details
+              </button>
+
+            </div>
+
+          </article>
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+
+    <!-- =========================
+         AI TOOLS
+         ========================= -->
+
+    <section id="ai-tools">
+
+      <div class="container">
+
+
+        <div class="section-head reveal">
+
+          <p class="eyebrow">
+            AI Hub
+          </p>
+
+          <h2>
+            AI Tools &amp; Learning
+          </h2>
+
+          <p class="section-lead">
+
+            A growing hub for creators,
+            developers, students and
+            entrepreneurs exploring AI.
+
+          </p>
+
+        </div>
+
+
+        <div class="grid-3">
+
+
+          <article class="card reveal">
+
+            <span class="card-icon">
+              ✍️
+            </span>
+
+            <h3>
+              AI Writing
+            </h3>
+
+            <p>
+              Writing workflows, content ideas,
+              rewriting and productivity prompts.
+            </p>
+
+            <span class="badge">
+              Coming Soon
+            </span>
+
+          </article>
+
+
+          <article class="card reveal">
+
+            <span class="card-icon">
+              🎨
+            </span>
+
+            <h3>
+              AI Image Creation
+            </h3>
+
+            <p>
+              Creative prompt resources for
+              posters, social media and
+              visual concepts.
+            </p>
+
+            <span class="badge">
+              Coming Soon
+            </span>
+
+          </article>
+
+
+          <article class="card reveal">
+
+            <span class="card-icon">
+              💻
+            </span>
+
+            <h3>
+              AI Coding
+            </h3>
+
+            <p>
+              Developer prompts and workflows
+              for learning, debugging and
+              building projects.
+            </p>
+
+            <span class="badge">
+              Coming Soon
+            </span>
+
+          </article>
+
+
+          <article class="card reveal">
+
+            <span class="card-icon">
+              ⚡
+            </span>
+
+            <h3>
+              AI Productivity
+            </h3>
+
+            <p>
+              Practical AI workflows for
+              planning, organization and
+              everyday work.
+            </p>
+
+            <span class="badge">
+              Coming Soon
+            </span>
+
+          </article>
+
+
+          <article class="card reveal">
+
+            <span class="card-icon">
+              🔎
+            </span>
+
+            <h3>
+              AI Research
+            </h3>
+
+            <p>
+              Research and learning workflows
+              designed for clearer and faster
+              exploration.
+            </p>
+
+            <span class="badge">
+              Coming Soon
+            </span>
+
+          </article>
+
+
+          <article class="card reveal">
+
+            <span class="card-icon">
+              🧠
+            </span>
+
+            <h3>
+              Prompt Library
+            </h3>
+
+            <p>
+              Structured prompt collections
+              for learning, coding, content,
+              business and career.
+            </p>
+
+            <span class="badge">
+              Coming Soon
+            </span>
+
+          </article>
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+
+    <!-- =========================
+         FREE RESOURCES
+         ========================= -->
+
+    <section id="free-resources">
+
+      <div class="container">
+
+
+        <div class="section-head reveal">
+
+          <p class="eyebrow">
+            Free Resources
+          </p>
+
+          <h2>
+            Learn Something Useful
+          </h2>
+
+          <p class="section-lead">
+
+            Free educational resources will be
+            added here as the Gadge Creations
+            library grows.
+
+          </p>
+
+        </div>
+
+
+        <div class="grid-3">
+
+
+          <article class="card reveal">
+
+            <span class="card-icon">
+              📖
+            </span>
+
+            <h3>
+              Beginner Guides
+            </h3>
+
+            <p>
+              Simple guides for learning
+              technology, digital tools and
+              creative workflows.
+            </p>
+
+            <span class="badge">
+              Coming Soon
+            </span>
+
+          </article>
+
+
+          <article class="card reveal">
+
+            <span class="card-icon">
+              💻
+            </span>
+
+            <h3>
+              Coding Resources
+            </h3>
+
+            <p>
+              Practice material and
+              beginner-friendly development
+              resources.
+            </p>
+
+            <span class="badge">
+              Coming Soon
+            </span>
+
+          </article>
+
+
+          <article class="card reveal">
+
+            <span class="card-icon">
+              🎓
+            </span>
+
+            <h3>
+              Career Resources
+            </h3>
+
+            <p>
+              Practical learning and
+              career-preparation resources
+              for students and freshers.
+            </p>
+
+            <span class="badge">
+              Coming Soon
+            </span>
+
+          </article>
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+
+    <!-- =========================
+         STATS
+         ========================= -->
+
+    <section id="stats">
+
+      <div class="container">
+
+        <div class="grid-4">
+
+
+          <div class="stat glass reveal">
+
+            <strong>
+              06+
+            </strong>
+
+            <span>
+              Resource Categories
+            </span>
+
+          </div>
+
+
+          <div class="stat glass reveal">
+
+            <strong>
+              06+
+            </strong>
+
+            <span>
+              Product Concepts
+            </span>
+
+          </div>
+
+
+          <div class="stat glass reveal">
+
+            <strong>
+              24/7
+            </strong>
+
+            <span>
+              Digital Access
+            </span>
+
+          </div>
+
+
+          <div class="stat glass reveal">
+
+            <strong>
+              ∞
+            </strong>
+
+            <span>
+              Creative Ideas
+            </span>
+
+          </div>
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+
+    <!-- =========================
+         FOUNDER / BRAND
+         ========================= -->
+
+    <section id="founder">
+
+      <div class="container">
+
+        <div class="founder glass reveal">
+
+
+          <div
+            class="avatar"
+            aria-hidden="true"
+          >
+            GC
+          </div>
+
+
+          <div>
+
+            <p class="eyebrow">
+              The Creator Brand
+            </p>
+
+            <h3>
+              Gadge Creations
+            </h3>
+
+            <p>
+
+              A creator-led digital platform
+              focused on practical resources,
+              technology, AI, creativity,
+              productivity and motivation.
+
+              The mission is simple:
+              create useful things,
+              learn continuously and help
+              others move from ideas to action.
+
+            </p>
+
+          </div>
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+
+    <!-- =========================
+         FEATURES
+         ========================= -->
+
+    <section id="features">
+
+      <div class="container">
+
+
+        <div class="section-head reveal">
+
+          <p class="eyebrow">
+            Premium Resources
+          </p>
+
+          <h2>
+            Built For Real Progress
+          </h2>
+
+        </div>
+
+
+        <div class="grid-4">
+
+
+          <article class="card reveal">
+
+            <h3>
+              📚 Practical Resources
+            </h3>
+
+            <p>
+              Useful tools, templates and
+              guides designed for real-world
+              implementation.
+            </p>
+
+          </article>
+
+
+          <article class="card reveal">
+
+            <h3>
+              💡 Creative Ideas
+            </h3>
+
+            <p>
+              Ideas and approaches to solve
+              problems, launch projects and
+              create better content.
+            </p>
+
+          </article>
+
+
+          <article class="card reveal">
+
+            <h3>
+              🚀 Technology Learning
+            </h3>
+
+            <p>
+              Learning resources for modern
+              development tools and digital
+              platforms.
+            </p>
+
+          </article>
+
+
+          <article class="card reveal">
+
+            <h3>
+              ⚡ Productivity Tools
+            </h3>
+
+            <p>
+              Workflows and systems designed
+              to save time and improve focus.
+            </p>
+
+          </article>
+
+
+          <article class="card reveal">
+
+            <h3>
+              🎁 Digital Products
+            </h3>
+
+            <p>
+              Premium digital resources
+              crafted to add value and
+              save time.
+            </p>
+
+          </article>
+
+
+          <article class="card reveal">
+
+            <h3>
+              🌱 Personal Growth
+            </h3>
+
+            <p>
+              Resources that encourage
+              learning, consistency and
+              long-term improvement.
+            </p>
+
+          </article>
+
+
+          <article class="card reveal">
+
+            <h3>
+              🔥 Motivation
+            </h3>
+
+            <p>
+              Ideas and messages to keep
+              moving forward with purpose.
+            </p>
+
+          </article>
+
+
+          <article class="card reveal">
+
+            <h3>
+              🧠 Learning
+            </h3>
+
+            <p>
+              Simple knowledge that can be
+              turned into practical action.
+            </p>
+
+          </article>
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+
+    <!-- =========================
+         CONTACT / CTA
+         ========================= -->
+
+    <section id="contact">
+
+      <div class="container">
+
+
+        <div class="cta glass reveal">
+
+
+          <p class="eyebrow">
+            Stay Connected
+          </p>
+
+
+          <h2>
+            Build Something Better
+          </h2>
+
+
+          <p>
+
+            Follow Gadge Creations for new
+            digital products, AI resources,
+            technology, productivity and
+            motivational content.
+
+          </p>
+
+
+          <div class="buttons">
+
+
+            <a
+              class="btn primary"
+              href="https://www.instagram.com/gadge_creations/"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              Follow on Instagram ↗
+            </a>
+
+
+            <a
+              class="btn secondary"
+              href="mailto:dattusgadge@gmail.com"
+            >
+              Contact Gadge Creations
+            </a>
+
+
+          </div>
+
+        </div>
+
+      </div>
+
+    </section>
+
+  </main>
+
+
+
+  <!-- ==================================================
+       RESOURCE DETAILS MODAL
+       ================================================== -->
+
+  <dialog
+    class="modal"
+    id="resource-dialog"
+    aria-labelledby="resource-title"
+    aria-describedby="resource-description"
+  >
+
+    <div class="modal-inner">
+
+
+      <button
+        class="modal-close"
+        type="button"
+        aria-label="Close resource details"
+      >
+        ×
+      </button>
+
+
+      <span class="modal-status">
+        Coming Soon
+      </span>
+
+
+      <h2 id="resource-title">
+        Resource
+      </h2>
+
+
+      <p id="resource-description">
+        Resource information.
+      </p>
+
+
+      <ul
+        class="topic-list"
+        id="resource-topics"
+      >
+      </ul>
+
+
+      <div class="modal-actions">
+
+
+        <a
+          class="btn primary modal-request"
+          href="mailto:dattusgadge@gmail.com"
+        >
+          Request an Update
+        </a>
+
+
+        <button
+          class="btn secondary modal-close"
+          type="button"
+        >
+          Back
+        </button>
+
+
+      </div>
+
+    </div>
+
+  </dialog>
+
+
+
+  <!-- ==================================================
+       DIGITAL PRODUCT DETAILS MODAL
+       ================================================== -->
+
+  <dialog
+    class="modal"
+    id="product-dialog"
+    aria-labelledby="product-title"
+    aria-describedby="product-description"
+  >
+
+    <div class="modal-inner">
+
+
+      <button
+        class="modal-close"
+        type="button"
+        aria-label="Close product details"
+      >
+        ×
+      </button>
+
+
+      <span class="modal-status">
+        Coming Soon
+      </span>
+
+
+      <h2 id="product-title">
+        Digital Product
+      </h2>
+
+
+      <p id="product-description">
+        Product information.
+      </p>
+
+
+      <ul
+        class="topic-list"
+        id="product-features"
+      >
+      </ul>
+
+
+      <div class="modal-actions">
+
+
+        <a
+          class="btn primary product-request"
+          href="mailto:dattusgadge@gmail.com"
+        >
+          Notify Me
+        </a>
+
+
+        <button
+          class="btn secondary modal-close"
+          type="button"
+        >
+          Close
+        </button>
+
+
+      </div>
+
+    </div>
+
+  </dialog>
+
+
+
+  <!-- =========================
+       FOOTER
+       ========================= -->
+
+  <footer>
+
+    <div class="container">
+
+
+      <div class="footer-brand">
+
+        ✦
+        GADGE CREATIONS
+
+      </div>
+
+
+      <div class="footer-tagline">
+        Learn • Build • Earn
+      </div>
+
+
+      <p>
+
+        Practical digital products,
+        creative resources, technology,
+        AI, productivity &amp; motivation.
+
+      </p>
+
+
+      <br>
+
+
+      <p>
+        © 2026 Gadge Creations.
+        All rights reserved.
+      </p>
+
+
+    </div>
+
+  </footer>  <!-- ==================================================
+       JAVASCRIPT
+       ================================================== -->
+
+  <script>
+    (() => {
+      "use strict";
+
+
+      /* ================================================
+         REDUCED MOTION
+         ================================================ */
+
+      const reducedMotion =
+        window.matchMedia(
+          "(prefers-reduced-motion: reduce)"
+        ).matches;
+
+
+
+      /* ================================================
+         NAVIGATION
+         ================================================ */
+
+      const nav =
+        document.querySelector(".site-nav");
+
+      const menuButton =
+        document.querySelector(".menu-toggle");
+
+      const navLinks =
+        document.querySelector(".nav-links");
+
+
+      function closeMenu() {
+
+        if (!menuButton || !navLinks) {
+          return;
+        }
+
+        navLinks.classList.remove("open");
+
+        menuButton.setAttribute(
+          "aria-expanded",
+          "false"
+        );
+
+        menuButton.setAttribute(
+          "aria-label",
+          "Open navigation menu"
+        );
+      }
+
+
+      function openMenu() {
+
+        if (!menuButton || !navLinks) {
+          return;
+        }
+
+        navLinks.classList.add("open");
+
+        menuButton.setAttribute(
+          "aria-expanded",
+          "true"
+        );
+
+        menuButton.setAttribute(
+          "aria-label",
+          "Close navigation menu"
+        );
+      }
+
+
+      if (menuButton) {
+
+        menuButton.addEventListener(
+          "click",
+          (event) => {
+
+            event.stopPropagation();
+
+            const isOpen =
+              menuButton.getAttribute(
+                "aria-expanded"
+              ) === "true";
+
+            if (isOpen) {
+              closeMenu();
+            } else {
+              openMenu();
+            }
+
+          }
+        );
+
+      }
+
+
+      /* Close mobile menu after clicking link */
+
+      if (navLinks) {
+
+        navLinks
+          .querySelectorAll("a")
+          .forEach((link) => {
+
+            link.addEventListener(
+              "click",
+              closeMenu
+            );
+
+          });
+
+      }
+
+
+      /* Close menu when clicking outside */
+
+      document.addEventListener(
+        "click",
+        (event) => {
+
+          if (
+            navLinks &&
+            navLinks.classList.contains("open") &&
+            nav &&
+            !nav.contains(event.target)
+          ) {
+
+            closeMenu();
+
+          }
+
+        }
+      );
+
+
+      /* Escape closes mobile menu */
+
+      document.addEventListener(
+        "keydown",
+        (event) => {
+
+          if (
+            event.key === "Escape" &&
+            navLinks &&
+            navLinks.classList.contains("open")
+          ) {
+
+            closeMenu();
+
+            if (menuButton) {
+              menuButton.focus();
+            }
+
+          }
+
+        }
+      );
+
+
+      /* Close menu after resizing to desktop */
+
+      window.addEventListener(
+        "resize",
+        () => {
+
+          if (window.innerWidth > 760) {
+            closeMenu();
+          }
+
+        }
+      );
+
+
+
+      /* ================================================
+         NAVIGATION SCROLL EFFECT
+         ================================================ */
+
+      function updateNavigation() {
+
+        if (!nav) {
+          return;
+        }
+
+        if (window.scrollY > 18) {
+
+          nav.classList.add("scrolled");
+
+        } else {
+
+          nav.classList.remove("scrolled");
+
+        }
+
+      }
+
+
+      updateNavigation();
+
+
+      window.addEventListener(
+        "scroll",
+        updateNavigation,
+        {
+          passive: true
+        }
+      );
+
+
+
+      /* ================================================
+         SMOOTH SCROLL
+         ================================================ */
+
+      document
+        .querySelectorAll('a[href^="#"]')
+        .forEach((anchor) => {
+
+          anchor.addEventListener(
+            "click",
+            (event) => {
+
+              const id =
+                anchor.getAttribute("href");
+
+              if (
+                !id ||
+                id === "#"
+              ) {
+                return;
+              }
+
+              const target =
+                document.querySelector(id);
+
+              if (!target) {
+                return;
+              }
+
+              event.preventDefault();
+
+              target.scrollIntoView({
+                behavior:
+                  reducedMotion
+                    ? "auto"
+                    : "smooth",
+
+                block: "start"
+              });
+
+            }
+          );
+
+        });
+
+
+
+      /* ================================================
+         SCROLL REVEAL ANIMATION
+         ================================================ */
+
+      const revealItems =
+        document.querySelectorAll(".reveal");
+
+
+      if (
+        reducedMotion ||
+        !("IntersectionObserver" in window)
+      ) {
+
+        revealItems.forEach((element) => {
+
+          element.classList.add("visible");
+
+        });
+
+      } else {
+
+        const observer =
+          new IntersectionObserver(
+            (entries, observerInstance) => {
+
+              entries.forEach((entry) => {
+
+                if (!entry.isIntersecting) {
+                  return;
+                }
+
+                entry.target.classList.add(
+                  "visible"
+                );
+
+                observerInstance.unobserve(
+                  entry.target
+                );
+
+              });
+
+            },
+            {
+              threshold: 0.12,
+
+              rootMargin:
+                "0px 0px -40px 0px"
+            }
+          );
+
+
+        revealItems.forEach((element) => {
+
+          observer.observe(element);
+
+        });
+
+      }
+
+
+
+      /* ================================================
+         RESOURCE DATA
+         ================================================ */
+
+      const resourceData = {
+
+        ai: {
+
+          title:
+            "AI Resources",
+
+          description:
+            "A focused collection of practical AI starting points is being curated for creators and curious builders.",
+
+          topics: [
+
+            "AI Tools",
+
+            "Prompt Library",
+
+            "AI Learning"
+
+          ]
+
+        },
+
+
+        "digital-products": {
+
+          title:
+            "Digital Products",
+
+          description:
+            "Useful, thoughtfully designed digital assets are being prepared to make the next step easier.",
+
+          topics: [
+
+            "Templates",
+
+            "E-books",
+
+            "Digital Downloads"
+
+          ]
+
+        },
+
+
+        technology: {
+
+          title:
+            "Technology",
+
+          description:
+            "A practical technology collection is in progress for people building their skills and digital confidence.",
+
+          topics: [
+
+            "Web Development",
+
+            "Coding",
+
+            "Developer Tools"
+
+          ]
+
+        },
+
+
+        productivity: {
+
+          title:
+            "Productivity",
+
+          description:
+            "Clear tools and repeatable systems are being selected to help make focused progress every day.",
+
+          topics: [
+
+            "Study Tools",
+
+            "Productivity Tools",
+
+            "Useful Resources"
+
+          ]
+
+        },
+
+
+        motivation: {
+
+          title:
+            "Motivation",
+
+          description:
+            "A thoughtful collection of encouragement and perspective is coming soon.",
+
+          topics: [
+
+            "Motivational Content",
+
+            "Success Mindset",
+
+            "Daily Inspiration"
+
+          ]
+
+        },
+
+
+        "personal-growth": {
+
+          title:
+            "Personal Growth",
+
+          description:
+            "Resources for steady learning and long-term progress are being curated with intention.",
+
+          topics: [
+
+            "Skill Development",
+
+            "Career Growth",
+
+            "Learning Resources"
+
+          ]
+
+        }
+
+      };
+
+
+
+      /* ================================================
+         DIGITAL PRODUCT DATA
+         ================================================ */
+
+      const productData = {
+
+        poster: {
+
+          title:
+            "Poster Template Collection",
+
+          description:
+            "Premium editable poster templates for birthdays, motivation, business and social media.",
+
+          features: [
+
+            "Birthday Posters",
+
+            "Motivational Posters",
+
+            "Business Posters",
+
+            "Social Media Designs"
+
+          ]
+
+        },
+
+
+        kannada: {
+
+          title:
+            "Kannada Motivation Templates",
+
+          description:
+            "Kannada motivational poster templates created for creators and social media pages.",
+
+          features: [
+
+            "Kannada Quotes",
+
+            "Motivation Designs",
+
+            "Story Templates",
+
+            "Post Templates"
+
+          ]
+
+        },
+
+
+        business: {
+
+          title:
+            "Business & Attitude Templates",
+
+          description:
+            "Professional business, branding and attitude-style social media templates.",
+
+          features: [
+
+            "Business Posts",
+
+            "Branding Templates",
+
+            "Attitude Designs",
+
+            "Promotional Graphics"
+
+          ]
+
+        },
+
+
+        ebooks: {
+
+          title:
+            "Creator E-book Collection",
+
+          description:
+            "Practical digital guides and creator-focused e-books for learning and growth.",
+
+          features: [
+
+            "Creator Guides",
+
+            "AI Guides",
+
+            "Productivity Guides",
+
+            "Career Resources"
+
+          ]
+
+        },
+
+
+        "ai-prompts": {
+
+          title:
+            "AI Prompt Collection",
+
+          description:
+            "Useful AI prompts for creators, productivity, content and digital work.",
+
+          features: [
+
+            "Content Prompts",
+
+            "Coding Prompts",
+
+            "Business Prompts",
+
+            "Career Prompts"
+
+          ]
+
+        },
+
+
+        social: {
+
+          title:
+            "Social Media Template Pack",
+
+          description:
+            "Modern templates for Instagram posts, stories and promotional content.",
+
+          features: [
+
+            "Instagram Posts",
+
+            "Instagram Stories",
+
+            "Reel Covers",
+
+            "Promotional Designs"
+
+          ]
+
+        }
+
+      };
+
+
+
+      /* ================================================
+         DIALOGS
+         ================================================ */
+
+      const resourceDialog =
+        document.querySelector(
+          "#resource-dialog"
+        );
+
+
+      const productDialog =
+        document.querySelector(
+          "#product-dialog"
+        );
+
+
+      let lastTrigger = null;
+
+
+
+      /* ================================================
+         CREATE LIST ITEMS
+         ================================================ */
+
+      function fillList(
+        list,
+        items
+      ) {
+
+        if (!list) {
+          return;
+        }
+
+
+        list.replaceChildren(
+
+          ...items.map((text) => {
+
+            const li =
+              document.createElement("li");
+
+            li.textContent = text;
+
+            return li;
+
+          })
+
+        );
+
+      }
+
+
+
+      /* ================================================
+         OPEN RESOURCE MODAL
+         ================================================ */
+
+      function showResource(
+        key,
+        trigger
+      ) {
+
+        const data =
+          resourceData[key];
+
+
+        if (
+          !data ||
+          !resourceDialog
+        ) {
+          return;
+        }
+
+
+        lastTrigger = trigger;
+
+
+        const title =
+          document.querySelector(
+            "#resource-title"
+          );
+
+
+        const description =
+          document.querySelector(
+            "#resource-description"
+          );
+
+
+        const topics =
+          document.querySelector(
+            "#resource-topics"
+          );
+
+
+        if (title) {
+
+          title.textContent =
+            data.title;
+
+        }
+
+
+        if (description) {
+
+          description.textContent =
+            data.description;
+
+        }
+
+
+        fillList(
+          topics,
+          data.topics
+        );
+
+
+        const request =
+          document.querySelector(
+            ".modal-request"
+          );
+
+
+        if (request) {
+
+          request.href =
+            "mailto:dattusgadge@gmail.com?subject=" +
+            encodeURIComponent(
+              "Gadge Creations " +
+              data.title +
+              " update"
+            );
+
+        }
+
+
+        resourceDialog.showModal();
+
+      }
+
+
+
+      /* ================================================
+         OPEN PRODUCT MODAL
+         ================================================ */
+
+      function showProduct(
+        key,
+        trigger
+      ) {
+
+        const data =
+          productData[key];
+
+
+        if (
+          !data ||
+          !productDialog
+        ) {
+          return;
+        }
+
+
+        lastTrigger = trigger;
+
+
+        const title =
+          document.querySelector(
+            "#product-title"
+          );
+
+
+        const description =
+          document.querySelector(
+            "#product-description"
+          );
+
+
+        const features =
+          document.querySelector(
+            "#product-features"
+          );
+
+
+        if (title) {
+
+          title.textContent =
+            data.title;
+
+        }
+
+
+        if (description) {
+
+          description.textContent =
+            data.description;
+
+        }
+
+
+        fillList(
+          features,
+          data.features
+        );
+
+
+        const request =
+          document.querySelector(
+            ".product-request"
+          );
+
+
+        if (request) {
+
+          request.href =
+            "mailto:dattusgadge@gmail.com?subject=" +
+            encodeURIComponent(
+              "Notify me: " +
+              data.title
+            );
+
+        }
+
+
+        productDialog.showModal();
+
+      }
+
+
+
+      /* ================================================
+         RESOURCE BUTTONS
+         ================================================ */
+
+      document
+        .querySelectorAll(
+          "[data-resource]"
+        )
+        .forEach((button) => {
+
+          button.addEventListener(
+            "click",
+            () => {
+
+              showResource(
+                button.dataset.resource,
+                button
+              );
+
+            }
+          );
+
+        });
+
+
+
+      /* ================================================
+         PRODUCT BUTTONS
+         ================================================ */
+
+      document
+        .querySelectorAll(
+          ".product-view"
+        )
+        .forEach((button) => {
+
+          button.addEventListener(
+            "click",
+            () => {
+
+              showProduct(
+                button.dataset.product,
+                button
+              );
+
+            }
+          );
+
+        });
+
+
+
+      /* ================================================
+         MODAL CLOSE BUTTONS
+         ================================================ */
+
+      document
+        .querySelectorAll(
+          ".modal-close"
+        )
+        .forEach((button) => {
+
+          button.addEventListener(
+            "click",
+            () => {
+
+              const dialog =
+                button.closest("dialog");
+
+
+              if (dialog) {
+                dialog.close();
+              }
+
+            }
+          );
+
+        });
+
+
+
+      /* ================================================
+         CLICK BACKDROP TO CLOSE
+         ================================================ */
+
+      [
+        resourceDialog,
+        productDialog
+      ]
+        .filter(Boolean)
+        .forEach((dialog) => {
+
+          dialog.addEventListener(
+            "click",
+            (event) => {
+
+              if (
+                event.target === dialog
+              ) {
+
+                dialog.close();
+
+              }
+
+            }
+          );
+
+
+          /* ============================================
+             RESTORE FOCUS
+             ============================================ */
+
+          dialog.addEventListener(
+            "close",
+            () => {
+
+              if (
+                lastTrigger &&
+                document.contains(lastTrigger)
+              ) {
+
+                lastTrigger.focus();
+
+              }
+
+              lastTrigger = null;
+
+            }
+          );
+
+        });
+
+
+
+      /* ================================================
+         DECORATIVE PARTICLES
+         ================================================ */
+
+      const particleBox =
+        document.querySelector(
+          ".background"
+        );
+
+
+      if (
+        particleBox &&
+        !reducedMotion
+      ) {
+
+        const fragment =
+          document.createDocumentFragment();
+
+
+        for (
+          let i = 0;
+          i < 18;
+          i++
+        ) {
+
+          const particle =
+            document.createElement(
+              "span"
+            );
+
+
+          particle.style.position =
+            "absolute";
+
+
+          particle.style.width =
+            "3px";
+
+
+          particle.style.height =
+            "3px";
+
+
+          particle.style.borderRadius =
+            "50%";
+
+
+          particle.style.background =
+            "rgba(255,255,255,.35)";
+
+
+          particle.style.left =
+            Math.random() * 100 + "%";
+
+
+          particle.style.top =
+            Math.random() * 100 + "%";
+
+
+          particle.style.animation =
+            "float " +
+            (14 + Math.random() * 14) +
+            "s linear infinite";
+
+
+          particle.style.animationDelay =
+            Math.random() * -20 + "s";
+
+
+          fragment.appendChild(
+            particle
+          );
+
+        }
+
+
+        particleBox.appendChild(
+          fragment
+        );
+
+      }
+
+
+
+      /* ================================================
+         CONSOLE CHECK
+         ================================================ */
+
+      console.log(
+        "Gadge Creations website loaded successfully."
+      );
+
+    })();
+  </script>
+
+
+</body>
+</html>
