@@ -1,0 +1,306 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+  <meta charset="UTF-8">
+
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0"
+  >
+
+  <title>
+    Payment Successful | Gadge Creations
+  </title>
+
+  <style>
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+
+      min-height: 100vh;
+
+      font-family: Arial, sans-serif;
+
+      background:
+        linear-gradient(
+          135deg,
+          #eef2ff,
+          #f8f9ff
+        );
+
+      display: flex;
+
+      align-items: center;
+
+      justify-content: center;
+
+      padding: 20px;
+
+      color: #1f2937;
+
+    }
+
+    .success-card {
+
+      width: 100%;
+
+      max-width: 520px;
+
+      background: #ffffff;
+
+      border-radius: 24px;
+
+      padding: 45px 30px;
+
+      text-align: center;
+
+      box-shadow:
+        0 20px 60px
+        rgba(0, 0, 0, 0.12);
+
+    }
+
+    .success-icon {
+
+      width: 90px;
+
+      height: 90px;
+
+      margin:
+        0 auto 25px;
+
+      border-radius: 50%;
+
+      background: #22c55e;
+
+      color: white;
+
+      display: flex;
+
+      align-items: center;
+
+      justify-content: center;
+
+      font-size: 48px;
+
+      font-weight: bold;
+
+    }
+
+    h1 {
+
+      font-size: 32px;
+
+      margin-bottom: 12px;
+
+      color: #111827;
+
+    }
+
+    .subtitle {
+
+      font-size: 17px;
+
+      line-height: 1.6;
+
+      color: #6b7280;
+
+      margin-bottom: 28px;
+
+    }
+
+    .brand {
+
+      font-size: 20px;
+
+      font-weight: bold;
+
+      color: #3157d5;
+
+      margin-bottom: 25px;
+
+    }
+
+    .details {
+
+      background: #f8fafc;
+
+      border-radius: 14px;
+
+      padding: 18px;
+
+      margin-bottom: 28px;
+
+      text-align: left;
+
+    }
+
+    .details p {
+
+      margin: 8px 0;
+
+      font-size: 14px;
+
+      color: #4b5563;
+
+      word-break: break-word;
+
+    }
+
+    .details strong {
+
+      color: #111827;
+
+    }
+
+    .btn {
+
+      display: inline-block;
+
+      padding: 14px 28px;
+
+      border-radius: 10px;
+
+      background: #3157d5;
+
+      color: white;
+
+      text-decoration: none;
+
+      font-weight: bold;
+
+    }
+
+    .support {
+
+      margin-top: 22px;
+
+      font-size: 13px;
+
+      color: #9ca3af;
+
+    }
+
+    @media (max-width: 500px) {
+
+      .success-card {
+        padding: 35px 20px;
+      }
+
+      h1 {
+        font-size: 27px;
+      }
+
+    }
+
+  </style>
+
+</head>
+
+
+<body>
+
+  <div class="success-card">
+
+    <div class="success-icon">
+      ✓
+    </div>
+
+    <div class="brand">
+      Gadge Creations
+    </div>
+
+    <h1>
+      Payment Successful!
+    </h1>
+
+    <p class="subtitle">
+
+      Thank you for your purchase.
+
+      Your payment has been received successfully.
+
+    </p>
+
+    <div class="details">
+
+      <p>
+
+        <strong>
+          Order ID:
+        </strong>
+
+        <span id="orderId">
+          Processing...
+        </span>
+
+      </p>
+
+      <p>
+
+        <strong>
+          Payment Status:
+        </strong>
+
+        <span id="paymentStatus">
+          Successful
+        </span>
+
+      </p>
+
+    </div>
+
+    <a
+      href="/"
+      class="btn"
+    >
+      Back to Gadge Creations
+    </a>
+
+    <p class="support">
+      Need help? Contact Gadge Creations support.
+    </p>
+
+  </div>
+
+
+  <script>
+
+    const params =
+      new URLSearchParams(
+        window.location.search
+      );
+
+
+    const orderId =
+      params.get("order_id") ||
+      params.get("orderId");
+
+
+    if (orderId) {
+
+      document
+        .getElementById("orderId")
+        .textContent = orderId;
+
+    } else {
+
+      document
+        .getElementById("orderId")
+        .textContent =
+        "Available in payment records";
+
+    }
+
+  </script>
+
+</body>
+
+</html>
