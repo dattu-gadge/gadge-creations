@@ -26,12 +26,12 @@ section{padding:105px 0}.heading{max-width:720px;margin-bottom:48px}.eyebrow{col
 .services{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}.card{padding:28px;border:1px solid var(--line);border-radius:22px;background:linear-gradient(145deg,rgba(255,255,255,.045),rgba(255,255,255,.015));transition:.25s}.card:hover{transform:translateY(-5px);border-color:rgba(233,185,73,.35);box-shadow:0 20px 50px rgba(0,0,0,.25)}.icon{width:48px;height:48px;border-radius:15px;display:grid;place-items:center;background:rgba(233,185,73,.08);border:1px solid rgba(233,185,73,.18);font-size:1.35rem}.card h3{font-size:1.2rem;margin:20px 0 8px}.card p{color:var(--muted);font-size:.93rem;margin:0}.tag{display:inline-block;margin-top:18px;color:#dfe6f0;font-size:.73rem;border:1px solid var(--line);padding:6px 9px;border-radius:999px}
 .dark{background:linear-gradient(180deg,rgba(255,255,255,.018),transparent)}
 .work{display:grid;grid-template-columns:1fr 1fr;gap:18px}.project{min-height:310px;border-radius:26px;border:1px solid var(--line);padding:30px;display:flex;flex-direction:column;justify-content:flex-end;background:radial-gradient(circle at 75% 20%,rgba(87,214,232,.12),transparent 25%),linear-gradient(145deg,#101828,#080b12)}.project:nth-child(2){background:radial-gradient(circle at 25% 20%,rgba(233,185,73,.13),transparent 28%),linear-gradient(145deg,#15120d,#080b12)}.project h3{font-size:1.65rem;margin:10px 0}.project p{color:var(--muted);max-width:520px}.project .label{color:var(--cyan);font-size:.75rem;font-weight:900;letter-spacing:1.4px;text-transform:uppercase}
-.process{display:grid;grid-template-columns:repeat(4,1fr);gap:16px}.step{padding:25px;border-top:2px solid var(--gold);background:rgba(255,255,255,.025);border-radius:0 0 18px 18px}.num{color:var(--gold);font-family:Manrope;font-size:1.4rem;font-weight:800}.step h3{margin:13px 0 8px}.step p{color:var(--muted);font-size:.9rem}
+.showcase{display:grid;grid-template-columns:1fr 1fr;gap:18px}.showcase-card{overflow:hidden;border:1px solid var(--line);border-radius:26px;background:linear-gradient(145deg,#101828,#080b12);transition:.25s}.showcase-card:hover{transform:translateY(-5px);border-color:rgba(233,185,73,.35);box-shadow:0 20px 55px rgba(0,0,0,.3)}.showcase-card.wide{grid-column:1/-1}.showcase-card img{display:block;width:100%;aspect-ratio:16/9;object-fit:cover;border-bottom:1px solid var(--line)}.showcase-body{padding:25px}.showcase-body h3{font-size:1.55rem;margin:10px 0 8px}.showcase-body p{color:var(--muted);max-width:720px}.showcase-body .label{color:var(--cyan);font-size:.72rem;font-weight:900;letter-spacing:1.4px;text-transform:uppercase}.process{display:grid;grid-template-columns:repeat(4,1fr);gap:16px}.step{padding:25px;border-top:2px solid var(--gold);background:rgba(255,255,255,.025);border-radius:0 0 18px 18px}.num{color:var(--gold);font-family:Manrope;font-size:1.4rem;font-weight:800}.step h3{margin:13px 0 8px}.step p{color:var(--muted);font-size:.9rem}
 .products{display:grid;grid-template-columns:1fr 1fr;gap:18px}.product{padding:30px;border:1px solid var(--line);border-radius:24px;background:linear-gradient(145deg,#111625,#090c14)}.price{font-size:1.7rem;color:var(--gold);font-family:Manrope;font-weight:800}.product p{color:var(--muted)}
 .cta{padding:0 0 105px}.cta-box{position:relative;overflow:hidden;text-align:center;padding:75px 30px;border:1px solid rgba(233,185,73,.22);border-radius:32px;background:radial-gradient(circle at 50% 0,rgba(233,185,73,.14),transparent 45%),linear-gradient(145deg,#121724,#080b12)}.cta-box h2{font-size:clamp(2.3rem,5vw,4.3rem);margin:12px auto;max-width:800px}.cta-box p{color:var(--muted);max-width:650px;margin:0 auto 28px}.contactline{margin-top:20px;color:#c6ccd7}.contactline b{color:var(--gold)}
 footer{border-top:1px solid var(--line);padding:30px 0;color:#8791a2}.foot{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap}.foot strong{color:var(--gold)}
 .mobile{display:none}
-@media(max-width:900px){.links{display:none}.mobile{display:block}.hero-grid{grid-template-columns:1fr}.services{grid-template-columns:1fr 1fr}.process{grid-template-columns:1fr 1fr}.work,.products{grid-template-columns:1fr}}
+@media(max-width:900px){.links{display:none}.mobile{display:block}.hero-grid{grid-template-columns:1fr}.services{grid-template-columns:1fr 1fr}.process{grid-template-columns:1fr 1fr}.work,.products,.showcase{grid-template-columns:1fr}.showcase-card.wide{grid-column:auto}}
 @media(max-width:560px){.navcta{display:none}.hero{padding-top:70px}h1{letter-spacing:-2px}.services,.process{grid-template-columns:1fr}.visual-card{min-height:400px}.mini-grid{grid-template-columns:1fr 1fr}section{padding:75px 0}}
 </style>
 </head>
@@ -69,9 +69,19 @@ footer{border-top:1px solid var(--line);padding:30px 0;color:#8791a2}.foot{displ
 </div></div></section>
 
 <section class="dark" id="work"><div class="wrap"><div class="heading"><div class="eyebrow">Selected work</div><h2>From idea to something people can use.</h2><p>A portfolio section designed to showcase your real projects without inventing client results.</p></div>
-<div class="work">
-<div class="project"><span class="label">Product / SaaS</span><h3>ANYTASK</h3><p>A task-service marketplace concept with customer workflows, payments and a mobile-first product experience.</p><a class="btn secondary" href="#contact">Discuss a Product →</a></div>
-<div class="project"><span class="label">Web / SEO</span><h3>Page Pulse</h3><p>An SEO & performance analyzer project combining a React frontend with a backend analysis workflow.</p><a class="btn secondary" href="#contact">Build Something Similar →</a></div>
+<div class="showcase">
+<article class="showcase-card">
+  <img src="assets/ai-gadge-studio-showcase.png" alt="Gadge Creations AI digital studio website concept preview" loading="lazy">
+  <div class="showcase-body"><span class="label">AI-generated concept preview</span><h3>Gadge Creations Digital Studio</h3><p>Premium website direction for a digital studio covering websites, AI, apps, branding and marketing.</p><a class="btn secondary" href="#contact">Build a Similar Website →</a></div>
+</article>
+<article class="showcase-card">
+  <img src="assets/ai-projects-showcase.png" alt="AI-generated portfolio concept showing digital products and projects" loading="lazy">
+  <div class="showcase-body"><span class="label">Portfolio concept preview</span><h3>Digital Products & Projects</h3><p>A visual portfolio layout showing product, app, SEO and business-solution experiences.</p><a class="btn secondary" href="#contact">Discuss Your Project →</a></div>
+</article>
+<article class="showcase-card wide">
+  <img src="assets/ai-portfolio-showcase.png" alt="AI-generated Gadge Creations portfolio concept preview" loading="lazy">
+  <div class="showcase-body"><span class="label">AI-generated concept preview</span><h3>Premium Business Website Direction</h3><p>A wide-format concept combining project previews, services, process and WhatsApp contact.</p><a class="btn secondary" href="#contact">Start a Project →</a></div>
+</article>
 </div></div></section>
 
 <section id="process"><div class="wrap"><div class="heading"><div class="eyebrow">Our process</div><h2>Simple, focused, transparent.</h2><p>Clear steps keep the project moving from first conversation to launch.</p></div>
